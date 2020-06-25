@@ -1,11 +1,7 @@
-export default class Slider {
-		constructor(page, btn) {
-				this.page = document.querySelector(page);
-				this.slides = this.page.children;
-				this.btn = document.querySelectorAll(btn);
-				this.slideIndex = 1;
-		}
+import Slider from './slider';
 
+
+export default class MainSlider extends Slider {
 		showSlide(n) {
 				if (n > this.slides.length) this.slideIndex = 1;
 				if (n < 1) this.slideIndex = this.slides.length;
@@ -14,6 +10,18 @@ export default class Slider {
 						slide.classList.add('animated', 'fadeIn')
 				});
 				this.slides[this.slideIndex - 1].style.display = 'block';
+				try {
+						if (this.slideIndex === 3) {
+								setTimeout(()=>{
+										this.hanson.classList.add('animated', 'fadeInDown')
+										this.hanson.style.display = 'block'
+								}, 2000)
+						} else {
+								this.hanson.classList.remove('animated', 'fadeInDown')
+								this.hanson.style.display = 'none'
+						}
+						// eslint-disable-next-line no-empty
+				} catch (e) {}
 		}
 
 		plusSlide(n) {
@@ -26,6 +34,10 @@ export default class Slider {
 								e.preventDefault()
 								this.plusSlide(1);
 						})
+						try {
+								this.hanson = document.querySelector('.hanson');
+								// eslint-disable-next-line no-empty
+						} catch (e) {}
 						// eslint-disable-next-line max-len
 						btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
 								e.preventDefault()
