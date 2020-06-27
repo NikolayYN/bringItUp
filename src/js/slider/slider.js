@@ -18,17 +18,4 @@ export default class Slider {
 				this.animate = animate;
 				this.active = active;
 		}
-
-		// check() {
-		// 		const slides = this.page.children;
-		// 		slides.forEach((slide, i) => {
-		// 				if (slide.tagName !== 'BUTTON') {
-		// 						slides.push(slide)
-		// 				} else {
-		// 						console.log(slide)
-		// 				}
-		// 				console.log(slides);
-		// 		})
-		// 		return slides
-		// }
 }

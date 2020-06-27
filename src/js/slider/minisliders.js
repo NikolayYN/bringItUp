@@ -3,19 +3,32 @@ import MainSlider from './slider-main';
 
 export default class MiniSlider extends MainSlider {
 		nextSlide() {
-				const active = this.slides[this.slides.length - 1]
-				this.page.insertBefore(active, this.slides[0])
+				const sliderArr = this.check();
+				const active = sliderArr[sliderArr.length - 1]
+				this.page.insertBefore(sliderArr[0], active)
+		}
+
+		check() {
+				let slides = [...this.page.children];
+				slides = slides.filter((slide, i) => {
+						return slide.tagName !== 'BUTTON';
+				})
+				return slides
 		}
 
 		bindSlide() {
 				this.next.addEventListener('click', () => {
-
-						const active = this.slides[this.slides.length - 1]
-						this.page.insertBefore(active, this.slides[0])
+						const slidesArr = this.check()
+						// eslint-disable-next-line max-len
+						this.page.insertBefore(slidesArr[0], slidesArr[slidesArr.length - 1])
 						this.setStyleSlide()
 				})
 				this.prev.addEventListener('click', () => {
-						this.page.appendChild(this.slides[0])
+						const slidesArr = this.check()
+						console.log(slidesArr);
+						const active = slidesArr[slidesArr.length - 1]
+						console.log('active', active);
+						this.page.insertAdjacentElement('afterbegin', active)
 						this.setStyleSlide()
 				})
 		}
@@ -47,7 +60,6 @@ export default class MiniSlider extends MainSlider {
 						}
 				})
 				this.slides[0].classList.add(this.active)
-				console.log(this.slides);
 				if (this.animate) {
 						this.slides[0].querySelector('.card__controls-count')
 							.style.opacity = '1';
