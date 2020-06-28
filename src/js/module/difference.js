@@ -13,10 +13,13 @@ export default class Difference {
 		}
 		showNextSlide() {
 				this.btn.addEventListener('click', ()=>{
-						if (this.indexSlide < 3) {
+						if (this.indexSlide < this.slides.length - 2) {
 								this.slides[this.indexSlide].style.display = 'flex'
+								this.indexSlide += 1;
+						} else {
+								this.slides[this.indexSlide].style.display = 'flex'
+								this.slides[this.slides.length - 1].remove()
 						}
-						this.indexSlide += 1;
 				})
 		}
 		init() {

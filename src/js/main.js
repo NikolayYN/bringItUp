@@ -3,6 +3,8 @@ import Player from './module/player';
 import MainSlider from './slider/slider-main';
 import MiniSlider from './slider/minisliders';
 import Difference from './module/difference';
+import {Form} from './form/form';
+import {Validator} from './form/validator';
 
 
 window.addEventListener('DOMContentLoaded', ()=> {
@@ -47,4 +49,13 @@ window.addEventListener('DOMContentLoaded', ()=> {
 			'.plus')
 		officerOld.init()
 		officerNew.init()
+
+		const joinEvolutionForm = new Form('.join__evolution .form', {
+				name: [Validator.require, Validator.requireMinLength(5)],
+				phone: [Validator.require, Validator.requireMinLength(5)],
+				email: [Validator.require, Validator.requireMinLength(5)],
+				city: [],
+				position: [Validator.require]
+		})
+		joinEvolutionForm.init()
 })

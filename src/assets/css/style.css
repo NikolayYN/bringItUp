@@ -1003,6 +1003,9 @@ a:active {
     letter-spacing: -.28px;
     -webkit-appearance: none
 }
+.join__evolution .form__block div select option{
+    color: darkblue;
+}
 .join__evolution .form__block div input {
     width: 340px;
     height: 64px;
