@@ -2,6 +2,7 @@ import Slider from './slider/slider';
 import Player from './module/player';
 import MainSlider from './slider/slider-main';
 import MiniSlider from './slider/minisliders';
+import Difference from './module/difference';
 
 
 window.addEventListener('DOMContentLoaded', ()=> {
@@ -36,4 +37,14 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		feedSlider.init()
 		const player = new Player('.overlay', '.close', '.play')
 		player.init()
+		const officerOld = new Difference(
+			'.officerold',
+			'.officer__card-item',
+			'.plus')
+		const officerNew = new Difference(
+			'.officernew',
+			'.officer__card-item',
+			'.plus')
+		officerOld.init()
+		officerNew.init()
 })
