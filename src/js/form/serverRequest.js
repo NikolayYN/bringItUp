@@ -6,11 +6,11 @@ class ApiRequest {
 				try {
 						const request = new Request(this.url, {
 								method: 'POST',
-								body: post
+								body: post,
 						})
 						return getResponse(request);
 				} catch (error) {
-						console.log('eto  oshibka', error);
+						console.log('eto  Ashibka', error);
 				}
 		}
 }
