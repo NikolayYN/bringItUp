@@ -57,5 +57,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
 				city: [],
 				position: [Validator.require]
 		})
+		const scheduleForm = new Form('.schedule__form .form', {
+				name: [Validator.require, Validator.requireMinLength(5)],
+				email: [Validator.require, Validator.requireMinLength(5)],
+				date: []
+		})
 		joinEvolutionForm.init()
+		scheduleForm.init()
 })

@@ -1,3 +1,6 @@
+import {apiServer} from './serverRequest';
+
+
 export class Form {
 		constructor(form, fields) {
 				this.form = document.querySelector(form);
@@ -51,16 +54,20 @@ function clearError(input) {
 		}
 }
 
-function handlerData(e) {
+async function handlerData(e) {
 		e.preventDefault()
-		console.log('form', this.form.city.value)
 		if (this.isValid()) {
 				const formData = {
-						city: this.form.city.value,
 						data: new Date().toLocaleDateString(),
 						...this.value()
 				}
-				console.log(formData)
+				try {
+						formData.city = this.form.city.value;
+						formData.date= this.form.date.value;
+				} catch {}
+
+				await apiServer.setPost(formData)
+					.then(data => console.log(data))
 				this.clear()
 		}
 }
