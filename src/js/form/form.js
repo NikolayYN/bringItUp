@@ -57,15 +57,8 @@ function clearError(input) {
 async function handlerData(e) {
 		e.preventDefault()
 		if (this.isValid()) {
-				const formData = {
-						data: new Date().toLocaleDateString(),
-						...this.value()
-				}
-				try {
-						formData.city = this.form.city.value;
-						formData.date= this.form.date.value;
-				} catch {}
-
+				const formData = new FormData(this.form)
+				formData.append('data', new Date().toLocaleDateString() )
 				await apiServer.setPost(formData)
 					.then(data => console.log(data))
 				this.clear()

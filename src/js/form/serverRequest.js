@@ -6,7 +6,7 @@ class ApiRequest {
 				try {
 						const request = new Request(this.url, {
 								method: 'POST',
-								body: JSON.stringify(post),
+								body: post
 						})
 						return getResponse(request);
 				} catch (error) {
