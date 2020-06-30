@@ -8,11 +8,17 @@ import {Validator} from './form/validator';
 
 
 window.addEventListener('DOMContentLoaded', ()=> {
-		const mainSlider = new MainSlider({
+		const mainSliderPage = new MainSlider({
 				page: '.page',
 				btn: '.next'
 		})
-		mainSlider.render()
+		const mainSliderModal = new MainSlider({
+				page: '.moduleapp',
+				btn: '.next',
+				prev: '.moduleapp .prev'
+		})
+		mainSliderPage.render()
+		mainSliderModal.render()
 		const showUpSlider = new MiniSlider({
 				page: '.showup__content-slider',
 				next: '.showup__content .showup__next',
@@ -34,7 +40,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 				page: '.feed__slider',
 				next: '.feed  .slick-next',
 				prev: '.feed  .slick-prev',
-				active: 'feed__item-active',
+				active: 'feed__item-active'
 		})
 		feedSlider.init()
 		const player = new Player('.overlay', '.close', '.play')

@@ -1,8 +1,10 @@
 export default class Difference {
 		constructor(container, slides, btn) {
-				this.container = document.querySelector(container);
-				this.slides = this.container.querySelectorAll(slides);
-				this.btn = this.container.querySelector(btn)
+			try {
+					this.container = document.querySelector(container);
+					this.slides = this.container.querySelectorAll(slides);
+					this.btn = this.container.querySelector(btn)
+			} catch (e) {}
 		}
 		hideSlides() {
 				for (let i = 0; i < this.slides.length -1; i++) {
@@ -23,7 +25,9 @@ export default class Difference {
 				})
 		}
 		init() {
-				this.hideSlides()
-				this.showNextSlide()
+				try {
+						this.hideSlides()
+						this.showNextSlide()
+				} catch (e) {}
 		}
 }

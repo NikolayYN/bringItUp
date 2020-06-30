@@ -1,7 +1,9 @@
 import MainSlider from './slider-main';
+import Slider from './slider';
 
 
-export default class MiniSlider extends MainSlider {
+export default class MiniSlider extends Slider {
+
 		nextSlide() {
 				const sliderArr = this.check();
 				const active = sliderArr[sliderArr.length - 1]
@@ -25,28 +27,29 @@ export default class MiniSlider extends MainSlider {
 				})
 				this.prev.addEventListener('click', () => {
 						const slidesArr = this.check()
-						console.log(slidesArr);
 						const active = slidesArr[slidesArr.length - 1]
-						console.log('active', active);
 						this.page.insertAdjacentElement('afterbegin', active)
 						this.setStyleSlide()
 				})
 		}
 
 		init() {
-				this.page.style.cssText = `
+				try {
+						this.page.style.cssText = `
 					display: flex;
 					aline-items: start;
 					flex-wrap: wrap;
 					overflow: hidden;					
 				`
-				this.bindSlide()
-				if (this.autoplay) {
-						setInterval(() => {
-								this.nextSlide()
-								this.setStyleSlide()
-						}, 5000)
-				}
+						console.log(this.page)
+						this.bindSlide()
+						if (this.autoplay) {
+								setInterval(() => {
+										this.nextSlide()
+										this.setStyleSlide()
+								}, 5000)
+						}
+				} catch (e) {}
 		}
 
 		setStyleSlide() {
@@ -69,6 +72,4 @@ export default class MiniSlider extends MainSlider {
 		}
 }
 
-function validNode(elem, node) {
-		return elem.tagName === node;
-}
+

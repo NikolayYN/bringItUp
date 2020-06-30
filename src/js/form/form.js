@@ -7,10 +7,12 @@ export class Form {
 				this.fields = fields;
 		}
 		init() {
-				this.clear()
-				this.initMask()
-				this.validMessage('[name="email"]')
-				this.form.addEventListener('submit', handlerData.bind(this))
+				try {
+						this.clear()
+						this.initMask()
+						this.validMessage('[name="email"]')
+						this.form.addEventListener('submit', handlerData.bind(this))
+				} catch (e) {}
 		}
 
 		isValid() {
