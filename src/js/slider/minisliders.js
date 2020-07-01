@@ -3,7 +3,6 @@ import Slider from './slider';
 
 
 export default class MiniSlider extends Slider {
-
 		nextSlide() {
 				const sliderArr = this.check();
 				const active = sliderArr[sliderArr.length - 1]
@@ -41,7 +40,6 @@ export default class MiniSlider extends Slider {
 					flex-wrap: wrap;
 					overflow: hidden;					
 				`
-						console.log(this.page)
 						this.bindSlide()
 						if (this.autoplay) {
 								setInterval(() => {

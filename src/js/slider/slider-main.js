@@ -56,7 +56,6 @@ export default class MainSlider extends Slider {
 						})
 				})
 				this.previous.forEach(prev => {
-						console.log(prev);
 						prev.addEventListener('click', (e) => {
 								this.plusSlide(-1)
 						})
