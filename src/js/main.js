@@ -5,6 +5,7 @@ import MiniSlider from './slider/minisliders';
 import Difference from './module/difference';
 import {Form} from './form/form';
 import {Validator} from './form/validator';
+import {Accordion} from './module/accordion';
 
 
 window.addEventListener('DOMContentLoaded', ()=> {
@@ -70,4 +71,6 @@ window.addEventListener('DOMContentLoaded', ()=> {
 		})
 		joinEvolutionForm.init()
 		scheduleForm.init()
+		new Accordion({btn: '.module__info-show .plus',
+									block: '.module__info .msg'}).init()
 })
