@@ -5,6 +5,7 @@ const webpack = require('webpack-stream');
 const browsersync = require('browser-sync');
 
 const dist = './dist/';
+// const dist = 'C:/xampp/htdocs/bawerek/dist';
 // eslint-disable-next-line max-len
 // const dist = '/Applications/MAMP/htdocs/test'; // Ссылка на вашу папку на сервере
 
